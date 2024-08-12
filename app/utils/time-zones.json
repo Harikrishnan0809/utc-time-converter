@@ -1,0 +1,527 @@
+[
+  {
+    "label": "UTC",
+    "value": "UTC",
+    "city": "UTC",
+    "country": "Universal",
+    "utcOffset": "UTC+00:00"
+  },
+  {
+    "label": "Reykjavik (Iceland)",
+    "value": "Atlantic/Reykjavik",
+    "city": "Reykjavik",
+    "country": "Iceland",
+    "utcOffset": "UTC+00:00"
+  },
+  {
+    "label": "New York (USA)",
+    "value": "America/New_York",
+    "city": "New York",
+    "country": "USA",
+    "utcOffset": "UTC-05:00"
+  },
+  {
+    "label": "Los Angeles (USA)",
+    "value": "America/Los_Angeles",
+    "city": "Los Angeles",
+    "country": "USA",
+    "utcOffset": "UTC-08:00"
+  },
+  {
+    "label": "London (UK)",
+    "value": "Europe/London",
+    "city": "London",
+    "country": "UK",
+    "utcOffset": "UTC+00:00"
+  },
+  {
+    "label": "Paris (France)",
+    "value": "Europe/Paris",
+    "city": "Paris",
+    "country": "France",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Berlin (Germany)",
+    "value": "Europe/Berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Moscow (Russia)",
+    "value": "Europe/Moscow",
+    "city": "Moscow",
+    "country": "Russia",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Dubai (UAE)",
+    "value": "Asia/Dubai",
+    "city": "Dubai",
+    "country": "UAE",
+    "utcOffset": "UTC+04:00"
+  },
+  {
+    "label": "Tokyo (Japan)",
+    "value": "Asia/Tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "utcOffset": "UTC+09:00"
+  },
+  {
+    "label": "Sydney (Australia)",
+    "value": "Australia/Sydney",
+    "city": "Sydney",
+    "country": "Australia",
+    "utcOffset": "UTC+10:00"
+  },
+  {
+    "label": "Beijing (China)",
+    "value": "Asia/Shanghai",
+    "city": "Beijing",
+    "country": "China",
+    "utcOffset": "UTC+08:00"
+  },
+  {
+    "label": "Mumbai (India)",
+    "value": "Asia/Kolkata",
+    "city": "Mumbai",
+    "country": "India",
+    "utcOffset": "UTC+05:30"
+  },
+  {
+    "label": "Singapore",
+    "value": "Asia/Singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "utcOffset": "UTC+08:00"
+  },
+  {
+    "label": "Hong Kong",
+    "value": "Asia/Hong_Kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "utcOffset": "UTC+08:00"
+  },
+  {
+    "label": "Seoul (South Korea)",
+    "value": "Asia/Seoul",
+    "city": "Seoul",
+    "country": "South Korea",
+    "utcOffset": "UTC+09:00"
+  },
+  {
+    "label": "Cairo (Egypt)",
+    "value": "Africa/Cairo",
+    "city": "Cairo",
+    "country": "Egypt",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Johannesburg (South Africa)",
+    "value": "Africa/Johannesburg",
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "São Paulo (Brazil)",
+    "value": "America/Sao_Paulo",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "utcOffset": "UTC-03:00"
+  },
+  {
+    "label": "Buenos Aires (Argentina)",
+    "value": "America/Argentina/Buenos_Aires",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "utcOffset": "UTC-03:00"
+  },
+  {
+    "label": "Mexico City (Mexico)",
+    "value": "America/Mexico_City",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "utcOffset": "UTC-06:00"
+  },
+  {
+    "label": "Jakarta (Indonesia)",
+    "value": "Asia/Jakarta",
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "utcOffset": "UTC+07:00"
+  },
+  {
+    "label": "Bangkok (Thailand)",
+    "value": "Asia/Bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "utcOffset": "UTC+07:00"
+  },
+  {
+    "label": "Kuala Lumpur (Malaysia)",
+    "value": "Asia/Kuala_Lumpur",
+    "city": "Kuala Lumpur",
+    "country": "Malaysia",
+    "utcOffset": "UTC+08:00"
+  },
+  {
+    "label": "Auckland (New Zealand)",
+    "value": "Pacific/Auckland",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "utcOffset": "UTC+12:00"
+  },
+  {
+    "label": "Honolulu (Hawaii)",
+    "value": "Pacific/Honolulu",
+    "city": "Honolulu",
+    "country": "Hawaii",
+    "utcOffset": "UTC-10:00"
+  },
+  {
+    "label": "Anchorage (Alaska)",
+    "value": "America/Anchorage",
+    "city": "Anchorage",
+    "country": "Alaska",
+    "utcOffset": "UTC-09:00"
+  },
+  {
+    "label": "Toronto (Canada)",
+    "value": "America/Toronto",
+    "city": "Toronto",
+    "country": "Canada",
+    "utcOffset": "UTC-05:00"
+  },
+  {
+    "label": "Vancouver (Canada)",
+    "value": "America/Vancouver",
+    "city": "Vancouver",
+    "country": "Canada",
+    "utcOffset": "UTC-08:00"
+  },
+  {
+    "label": "Lisbon (Portugal)",
+    "value": "Europe/Lisbon",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "utcOffset": "UTC+00:00"
+  },
+  {
+    "label": "Madrid (Spain)",
+    "value": "Europe/Madrid",
+    "city": "Madrid",
+    "country": "Spain",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Rome (Italy)",
+    "value": "Europe/Rome",
+    "city": "Rome",
+    "country": "Italy",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Athens (Greece)",
+    "value": "Europe/Athens",
+    "city": "Athens",
+    "country": "Greece",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Warsaw (Poland)",
+    "value": "Europe/Warsaw",
+    "city": "Warsaw",
+    "country": "Poland",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Stockholm (Sweden)",
+    "value": "Europe/Stockholm",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Helsinki (Finland)",
+    "value": "Europe/Helsinki",
+    "city": "Helsinki",
+    "country": "Finland",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Oslo (Norway)",
+    "value": "Europe/Oslo",
+    "city": "Oslo",
+    "country": "Norway",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Zurich (Switzerland)",
+    "value": "Europe/Zurich",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Vienna (Austria)",
+    "value": "Europe/Vienna",
+    "city": "Vienna",
+    "country": "Austria",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Prague (Czech Republic)",
+    "value": "Europe/Prague",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Brussels (Belgium)",
+    "value": "Europe/Brussels",
+    "city": "Brussels",
+    "country": "Belgium",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Amsterdam (Netherlands)",
+    "value": "Europe/Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Copenhagen (Denmark)",
+    "value": "Europe/Copenhagen",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Budapest (Hungary)",
+    "value": "Europe/Budapest",
+    "city": "Budapest",
+    "country": "Hungary",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Riyadh (Saudi Arabia)",
+    "value": "Asia/Riyadh",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Istanbul (Turkey)",
+    "value": "Europe/Istanbul",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Tehran (Iran)",
+    "value": "Asia/Tehran",
+    "city": "Tehran",
+    "country": "Iran",
+    "utcOffset": "UTC+03:30"
+  },
+  {
+    "label": "Baghdad (Iraq)",
+    "value": "Asia/Baghdad",
+    "city": "Baghdad",
+    "country": "Iraq",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Jerusalem (Israel)",
+    "value": "Asia/Jerusalem",
+    "city": "Jerusalem",
+    "country": "Israel",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Beirut (Lebanon)",
+    "value": "Asia/Beirut",
+    "city": "Beirut",
+    "country": "Lebanon",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Damascus (Syria)",
+    "value": "Asia/Damascus",
+    "city": "Damascus",
+    "country": "Syria",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Amman (Jordan)",
+    "value": "Asia/Amman",
+    "city": "Amman",
+    "country": "Jordan",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Nairobi (Kenya)",
+    "value": "Africa/Nairobi",
+    "city": "Nairobi",
+    "country": "Kenya",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Addis Ababa (Ethiopia)",
+    "value": "Africa/Addis_Ababa",
+    "city": "Addis Ababa",
+    "country": "Ethiopia",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Kampala (Uganda)",
+    "value": "Africa/Kampala",
+    "city": "Kampala",
+    "country": "Uganda",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Algiers (Algeria)",
+    "value": "Africa/Algiers",
+    "city": "Algiers",
+    "country": "Algeria",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Casablanca (Morocco)",
+    "value": "Africa/Casablanca",
+    "city": "Casablanca",
+    "country": "Morocco",
+    "utcOffset": "UTC+00:00"
+  },
+  {
+    "label": "Accra (Ghana)",
+    "value": "Africa/Accra",
+    "city": "Accra",
+    "country": "Ghana",
+    "utcOffset": "UTC+00:00"
+  },
+  {
+    "label": "Lagos (Nigeria)",
+    "value": "Africa/Lagos",
+    "city": "Lagos",
+    "country": "Nigeria",
+    "utcOffset": "UTC+01:00"
+  },
+  {
+    "label": "Dakar (Senegal)",
+    "value": "Africa/Dakar",
+    "city": "Dakar",
+    "country": "Senegal",
+    "utcOffset": "UTC+00:00"
+  },
+  {
+    "label": "Harare (Zimbabwe)",
+    "value": "Africa/Harare",
+    "city": "Harare",
+    "country": "Zimbabwe",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Cape Town (South Africa)",
+    "value": "Africa/Johannesburg",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "utcOffset": "UTC+02:00"
+  },
+  {
+    "label": "Victoria (Seychelles)",
+    "value": "Indian/Mahe",
+    "city": "Victoria",
+    "country": "Seychelles",
+    "utcOffset": "UTC+04:00"
+  },
+  {
+    "label": "Colombo (Sri Lanka)",
+    "value": "Asia/Colombo",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "utcOffset": "UTC+05:30"
+  },
+  {
+    "label": "Male (Maldives)",
+    "value": "Indian/Maldives",
+    "city": "Male",
+    "country": "Maldives",
+    "utcOffset": "UTC+05:00"
+  },
+  {
+    "label": "Dhaka (Bangladesh)",
+    "value": "Asia/Dhaka",
+    "city": "Dhaka",
+    "country": "Bangladesh",
+    "utcOffset": "UTC+06:00"
+  },
+  {
+    "label": "Kathmandu (Nepal)",
+    "value": "Asia/Kathmandu",
+    "city": "Kathmandu",
+    "country": "Nepal",
+    "utcOffset": "UTC+05:45"
+  },
+  {
+    "label": "Thimphu (Bhutan)",
+    "value": "Asia/Thimphu",
+    "city": "Thimphu",
+    "country": "Bhutan",
+    "utcOffset": "UTC+06:00"
+  },
+  {
+    "label": "Rangoon (Myanmar)",
+    "value": "Asia/Yangon",
+    "city": "Rangoon",
+    "country": "Myanmar",
+    "utcOffset": "UTC+06:30"
+  },
+  {
+    "label": "Karachi (Pakistan)",
+    "value": "Asia/Karachi",
+    "city": "Karachi",
+    "country": "Pakistan",
+    "utcOffset": "UTC+05:00"
+  },
+  {
+    "label": "Muscat (Oman)",
+    "value": "Asia/Muscat",
+    "city": "Muscat",
+    "country": "Oman",
+    "utcOffset": "UTC+04:00"
+  },
+  {
+    "label": "Doha (Qatar)",
+    "value": "Asia/Qatar",
+    "city": "Doha",
+    "country": "Qatar",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Manama (Bahrain)",
+    "value": "Asia/Bahrain",
+    "city": "Manama",
+    "country": "Bahrain",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Kuwait City (Kuwait)",
+    "value": "Asia/Kuwait",
+    "city": "Kuwait City",
+    "country": "Kuwait",
+    "utcOffset": "UTC+03:00"
+  },
+  {
+    "label": "Muscat (Oman)",
+    "value": "Asia/Muscat",
+    "city": "Muscat",
+    "country": "Oman",
+    "utcOffset": "UTC+04:00"
+  }
+]
