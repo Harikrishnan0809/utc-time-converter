@@ -8,6 +8,7 @@ import { TimeZoneSelect } from './time-zone-select'
 import { ControlButtons } from './control-buttons'
 import { TimeZoneList } from './time-zone-list'
 import timeZones from '../app/utils/time-zones.json'
+import TimePicker from './time-picker'
 
 export default function TimezoneConverter() {
   const router = useRouter()
@@ -25,9 +26,34 @@ export default function TimezoneConverter() {
   const [isMounted, setIsMounted] = useState(false)
   const [timeShift, setTimeShift] = useState(0)
 
+  const [showUrlInput, setShowUrlInput] = useState(false)
+  const [includeDate, setIncludeDate] = useState(false)
+  const [includeTime, setIncludeTime] = useState(false)
+  const [copiedUrl, setCopiedUrl] = useState('')
+
   useEffect(() => {
     setIsMounted(true)
+
+    const dateFromQuery = searchParams.get('date')
+    const timeFromQuery = searchParams.get('time')
     const timeZonesFromQuery = searchParams.get('timezones')
+
+    let newDateTime = dateTime
+
+    if (dateFromQuery && timeFromQuery) {
+      newDateTime = LuxonDateTime.fromFormat(
+        `${dateFromQuery} ${timeFromQuery}`,
+        'LLL-dd-yyyy h:mm a',
+        { zone: 'utc' }
+      )
+
+      if (newDateTime.isValid) {
+        setDateTime(newDateTime)
+        setIncludeDate(true)
+        setIncludeTime(true)
+      }
+    }
+
     if (timeZonesFromQuery) {
       const decodedTimeZones = timeZonesFromQuery.split(',').map(decodeTimeZone)
       const foundTimeZones = decodedTimeZones
@@ -37,7 +63,7 @@ export default function TimezoneConverter() {
       setConvertedTimes(
         foundTimeZones.map((tz) => ({
           zone: tz,
-          time: dateTime.setZone(tz.value),
+          time: newDateTime.setZone(tz.value),
         }))
       )
     }
@@ -126,8 +152,33 @@ export default function TimezoneConverter() {
   }
 
   const handleCopyUrl = () => {
+    const baseUrl = window.location.origin
+
+    // Get the current time zones from the selected options
+    const timeZonesString = selectedOptions
+      .map((opt) => encodeTimeZone(opt.value))
+      .join(',')
+
+    // Start building the URL
+    let newUrl = `${baseUrl}/?timezones=${timeZonesString}`
+
+    // Conditionally add date and time to the URL if checkboxes are checked
+    if (includeDate) {
+      const formattedDate = dateTime.toFormat('LLL-dd-yyyy')
+      newUrl += `&date=${formattedDate}`
+    }
+
+    if (includeTime) {
+      const formattedTime = dateTime.toFormat('h:mm a')
+      newUrl += `&time=${formattedTime}`
+    }
+
+    setCopiedUrl(newUrl)
+    setShowUrlInput(true)
+
+    // Automatically copy to clipboard
     navigator.clipboard
-      .writeText(window.location.href)
+      .writeText(newUrl)
       .then(() => {
         alert('URL copied to clipboard!')
       })
@@ -154,6 +205,59 @@ export default function TimezoneConverter() {
     )
   }
 
+  const updateUrlWithDateTime = (newDateTime) => {
+    const baseUrl = window.location.origin
+
+    // Get the current time zones from the selected options
+    const timeZonesString = selectedOptions
+      .map((opt) => encodeTimeZone(opt.value))
+      .join(',')
+
+    // Start building the URL
+    let newUrl = `${baseUrl}/?timezones=${timeZonesString}`
+
+    // Conditionally add date and time to the URL if checkboxes are checked
+    if (includeDate) {
+      const formattedDate = newDateTime.toFormat('LLL-dd-yyyy')
+      newUrl += `&date=${formattedDate}`
+    }
+
+    if (includeTime) {
+      const formattedTime = newDateTime.toFormat('h:mm a')
+      newUrl += `&time=${formattedTime}`
+    }
+
+    // Update only the copied URL in the input field
+    setCopiedUrl(newUrl)
+
+    // Automatically copy to clipboard
+    navigator.clipboard.writeText(newUrl).catch((err) => {
+      console.error('Failed to copy: ', err)
+    })
+  }
+
+  const handleIncludeDateChange = () => {
+    if (!includeDate) {
+      const formattedDate = dateTime.toFormat('LLL-dd-yyyy')
+      setCopiedUrl((prevUrl) => prevUrl + `&date=${formattedDate}`)
+      setIncludeDate(true)
+    } else {
+      setIncludeDate(false)
+      updateUrlWithDateTime(dateTime) // Update URL without date
+    }
+  }
+
+  const handleIncludeTimeChange = () => {
+    if (!includeTime) {
+      const formattedTime = dateTime.toFormat('h:mm a')
+      setCopiedUrl((prevUrl) => prevUrl + `&time=${formattedTime}`)
+      setIncludeTime(true)
+    } else {
+      setIncludeTime(false)
+      updateUrlWithDateTime(dateTime) // Update URL without time
+    }
+  }
+
   return (
     <div className='flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 p-6'>
       <div className='bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 max-w-xl w-full'>
@@ -173,6 +277,74 @@ export default function TimezoneConverter() {
           onCopyUrl={handleCopyUrl}
           onDeleteAll={handleDeleteAll}
         />
+        {showUrlInput && (
+          <div className='mt-6 p-4 bg-gray-200 dark:bg-gray-700 rounded-lg w-full max-w-lg mx-auto'>
+            <div className='mb-4'>
+              <label className='block text-gray-800 dark:text-gray-200'>
+                Copied URL:
+              </label>
+              <input
+                type='text'
+                className='w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md'
+                value={copiedUrl}
+                readOnly
+              />
+            </div>
+
+            <div className='flex items-center mb-4'>
+              <input
+                type='checkbox'
+                id='includeDate'
+                className='mr-2'
+                checked={includeDate}
+                onChange={handleIncludeDateChange}
+              />
+              <label
+                htmlFor='includeDate'
+                className='text-gray-800 dark:text-gray-200'
+              >
+                Include Date
+              </label>
+            </div>
+
+            <div className='flex items-center mb-4'>
+              <input
+                type='checkbox'
+                id='includeTime'
+                className='mr-2'
+                checked={includeTime}
+                onChange={handleIncludeTimeChange}
+              />
+              <label
+                htmlFor='includeTime'
+                className='text-gray-800 dark:text-gray-200'
+              >
+                Include Time
+              </label>
+            </div>
+
+            {includeDate && (
+              <DateTimePicker
+                dateTime={dateTime}
+                onDateTimeChange={(newDate) => {
+                  setDateTime(newDate)
+                  updateUrlWithDateTime(newDate)
+                }}
+              />
+            )}
+
+            {includeTime && (
+              <TimePicker
+                time={dateTime}
+                onTimeChange={(newTime) => {
+                  setDateTime(newTime)
+                  updateUrlWithDateTime(newTime)
+                }}
+              />
+            )}
+          </div>
+        )}
+
         <TimeZoneList
           convertedTimes={convertedTimes}
           timeShift={timeShift}
