@@ -1,14 +1,16 @@
-import { AiOutlineSwap, AiOutlineCopy, AiOutlineDelete } from 'react-icons/ai'
+import { AiOutlineCopy, AiOutlineDelete } from 'react-icons/ai'
 import { IoSwapVerticalOutline } from 'react-icons/io5'
-import { ToggleTheme } from './toggle-theme'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+import { BsMoonStars, BsSun } from 'react-icons/bs'
+import { useTheme } from 'next-themes'
 
 export function ControlButtons({ onReverse, onCopyUrl, onDeleteAll }) {
+  const { theme, setTheme } = useTheme()
   return (
     <div className='flex justify-between items-center w-10/12 md:w-1/2 mx-auto mb-6'>
       <TooltipProvider>
@@ -55,8 +57,16 @@ export function ControlButtons({ onReverse, onCopyUrl, onDeleteAll }) {
 
       <TooltipProvider>
         <Tooltip>
-          <TooltipTrigger className='text-blue-600 hover:text-blue-800 dark:text-gray-200 dark:hover:text-gray-300'>
-            <ToggleTheme />
+          <TooltipTrigger
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className='text-blue-600 hover:text-blue-800 dark:text-gray-200 dark:hover:text-gray-300'
+          >
+            {theme === 'dark' ? (
+              <BsSun className='h-[1.2rem] w-[1.2rem]' />
+            ) : (
+              <BsMoonStars className='h-[1.2rem] w-[1.2rem]' />
+            )}
+            <span className='sr-only'>Toggle theme</span>{' '}
           </TooltipTrigger>
         </Tooltip>
       </TooltipProvider>

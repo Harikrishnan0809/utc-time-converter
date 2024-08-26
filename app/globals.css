@@ -67,3 +67,65 @@
     @apply bg-background text-foreground;
   }
 }
+
+.dark .rdtPicker {
+  background-color: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+.dark .rdtPicker th,
+.dark .rdtPicker td {
+  color: #e2e8f0;
+}
+
+.dark .rdtPicker td.rdtToday:before {
+  border-bottom-color: #4a5568;
+}
+
+.dark .rdtPicker td.rdtActive,
+.dark .rdtPicker td.rdtActive:hover {
+  background-color: #4a5568;
+  color: #e2e8f0;
+}
+
+.dark .rdtPicker .rdtTimeToggle {
+  background-color: #4a5568;
+  color: #e2e8f0;
+}
+
+.dark .rdtPicker .rdtTimeToggle:hover {
+  background-color: #718096;
+}
+
+.dark .rdtPicker .rdtCounters,
+.dark .rdtPicker .rdtCount,
+.dark .rdtPicker .rdtBtn {
+  background-color: #4a5568;
+  color: #e2e8f0;
+}
+
+.dark .rdtPicker .rdtBtn:hover {
+  background-color: #718096;
+}
+
+.dark .rdtPicker .rdtTimeToggle {
+  color: #e2e8f0;
+}
+
+.dark .rdtPicker .rdtNext,
+.dark .rdtPicker .rdtPrev {
+  color: #e2e8f0;
+}
+
+.dark .rdtPicker th.rdtSwitch {
+  color: #e2e8f0;
+}
+
+.dark .rdtPicker th.rdtSwitch:hover {
+  background-color: #718096;
+}
+
+.dark .rdtPicker tfoot {
+  border-top: '1px solid #4a5568';
+}

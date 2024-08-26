@@ -37,23 +37,6 @@ export default function TimezoneConverter() {
     const dateFromQuery = searchParams.get('date')
     const timeFromQuery = searchParams.get('time')
     const timeZonesFromQuery = searchParams.get('timezones')
-
-    let newDateTime = dateTime
-
-    if (dateFromQuery && timeFromQuery) {
-      newDateTime = LuxonDateTime.fromFormat(
-        `${dateFromQuery} ${timeFromQuery}`,
-        'LLL-dd-yyyy h:mm a',
-        { zone: 'utc' }
-      )
-
-      if (newDateTime.isValid) {
-        setDateTime(newDateTime)
-        setIncludeDate(true)
-        setIncludeTime(true)
-      }
-    }
-
     if (timeZonesFromQuery) {
       const decodedTimeZones = timeZonesFromQuery.split(',').map(decodeTimeZone)
       const foundTimeZones = decodedTimeZones
@@ -63,17 +46,22 @@ export default function TimezoneConverter() {
       setConvertedTimes(
         foundTimeZones.map((tz) => ({
           zone: tz,
-          time: newDateTime.setZone(tz.value),
+          time: dateTime.setZone(tz.value),
         }))
       )
     }
   }, [searchParams])
 
   const handleTimeZoneChange = (option) => {
-    if (!option) return // Prevent null options from being added
+    if (!option) return
 
     const updatedOptions = [...selectedOptions, option]
     setSelectedOptions(updatedOptions)
+    const encodedTimeZones = updatedOptions
+      .map((opt) => encodeTimeZone(opt.value))
+      .join(',')
+    const formattedDateTime = dateTime.toFormat("yyyy-MM-dd'T'HH:mm")
+
     setConvertedTimes([
       ...convertedTimes,
       {
@@ -82,9 +70,28 @@ export default function TimezoneConverter() {
       },
     ])
     router.push(
-      `?timezones=${updatedOptions
-        .map((opt) => encodeTimeZone(opt.value))
-        .join(',')}`,
+      `?timezones=${encodedTimeZones}&datetime=${formattedDateTime}`,
+      undefined,
+      { shallow: true }
+    )
+  }
+
+  const handleDateTimeChange = (newDateTime) => {
+    setDateTime(newDateTime)
+    const formattedDateTime = newDateTime.toFormat("yyyy-MM-dd'T'HH:mm")
+    const encodedTimeZones = selectedOptions
+      .map((opt) => encodeTimeZone(opt.value))
+      .join(',')
+
+    setConvertedTimes(
+      selectedOptions.map((tz) => ({
+        zone: tz,
+        time: newDateTime.setZone(tz.value).plus({ minutes: timeShift }),
+      }))
+    )
+
+    router.push(
+      `?timezones=${encodedTimeZones}&datetime=${formattedDateTime}`,
       undefined,
       { shallow: true }
     )
@@ -266,8 +273,10 @@ export default function TimezoneConverter() {
         </h1>
         <DateTimePicker
           dateTime={dateTime}
-          onDateTimeChange={setDateTime}
+          onDateTimeChange={handleDateTimeChange}
+          showTime={true}
         />
+
         <TimeZoneSelect
           isMounted={isMounted}
           onTimeZoneChange={handleTimeZoneChange}
@@ -330,6 +339,7 @@ export default function TimezoneConverter() {
                   setDateTime(newDate)
                   updateUrlWithDateTime(newDate)
                 }}
+                showTime={false}
               />
             )}
 
